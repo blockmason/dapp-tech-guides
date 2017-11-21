@@ -1,4 +1,4 @@
-contract VerifiedCreditor {
+contract ApprovedCreditor {
     mapping (address => bool) public admins;
     uint public numAdmins;
 
@@ -10,7 +10,7 @@ contract VerifiedCreditor {
     event AdminRemoved(address _removedAdmin, uint _numAdmins); 
     event CreditorRemoved(address _removedCreditor, uint _numCreditors);
 
-    function VerifiedCreditor() { // Constructor
+    function ApprovedCreditor() { // Constructor
         admins[msg.sender] = true;
         approvedCreditors[msg.sender] = true;
         numAdmins = 1;
