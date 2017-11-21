@@ -52,7 +52,7 @@ A UCAC takes in the Ethereum address of the creditor, the Ethereum address of th
 
 Now let's explore a few examples of custom UCACs that place constraints on the recording of credit agreements.
 
-### Example 1: Amount
+### Example 1: Amount Contraint
 
 This UCAC requires that the amount be between 50 and 500:
 
@@ -68,7 +68,7 @@ The constraint is written on one line and is very straightforward: "amount >= 50
 
 Now let's look at something a bit more complicated.
 
-### Example 2: Approved Creditor
+### Example 2: Approved Creditor Constraint
 
 The following contract has the capacity to store approved creditor addresses and then checks the creditor address passed to the allowTransaction function against the approved creditors.
 
@@ -85,7 +85,7 @@ contract ApprovedCreditor {
     event AdminRemoved(address _removedAdmin, uint _numAdmins); 
     event CreditorRemoved(address _removedCreditor, uint _numCreditors);
 
-    function VerifiedCreditor() { // Constructor
+    function ApprovedCreditor() { // Constructor
         admins[msg.sender] = true;
         approvedCreditors[msg.sender] = true;
         numAdmins = 1;
@@ -124,6 +124,7 @@ contract ApprovedCreditor {
 		return approvedCreditors[creditor];
     }
 }
+
 ```
 
 This one is a bit more complicated, so let's go through it step by step:
@@ -137,5 +138,5 @@ That's all for this UCAC, and we're excited to see what else the community will 
 
 ### Looking Forward
 
-In the future, CP may modify the allowTransaction function to accept the memo from issueCredit or some other parameters, further opening up possibilities for agreement confirmation. Stay posted for changes to CP as we release more dapps built on the blockchain.
+In the future, CP may modify the allowTransaction function to accept the memo from issueCredit or some other parameters, further opening up possibilities for agreement confirmation. Stay posted for changes to CP as we, and you, release more dapps built on the blockchain.
 
