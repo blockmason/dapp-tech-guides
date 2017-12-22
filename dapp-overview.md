@@ -35,20 +35,10 @@ Secure authentication is a key benefit of blockchains, and successful implementa
 
 Flow:
 
-Private key is generated on mobile device
-All messages to server are signed with key
-
-
-
-
-Server validates messages with public key
-
-
-
-
-Credit Protocol contract validates signatures 
-	using public keys
-
+1. Private key is generated on mobile device
+2. All messages to server are signed with key
+3. Server validates messages with public key
+4. Credit Protocol contract validates signatures using public keys
 
 The process starts when a user loads the app for the first time and a private key unique to that user’s phone is created. The key is stored on the user’s phone using a SQLite database that can only be accessed by the Lndr dapp. The new private key is used to sign all messages sent to the server, which allows the server to validate every incoming message using public keys. No authentication information is stored on the server or in the supplemental database, providing a level of security not currently present in most consumer apps.
 In the case of Lndr, we used the secp256k1 libraries for Haskell and Javascript to generate private keys and validate signed messages coming to the server. These libraries required some configuration to work with React Native and server-side Haskell, and we will be sharing our work in the documentation on authentication and security.
