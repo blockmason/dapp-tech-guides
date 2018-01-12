@@ -52,7 +52,7 @@ A UCAC takes in the Ethereum address of the creditor, the Ethereum address of th
 
 Now let's explore a few examples of custom UCACs that place constraints on the recording of credit agreements.
 
-### Example 1: Amount Contraint
+### Example 1: Amount Constraint
 
 This UCAC requires that the amount be between 50 and 500:
 
